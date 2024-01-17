@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator_Lab1</title>
+    <!--
+        The tailwind CDN is designed for development purposes only, and is not the best choice for production.
+        Read more here: https://tailwindcss.com/docs/installation 
+    -->
+    <!-- example for dark theme styling when using tailwind cdn -->
+    <style>
+        
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        div {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: rgb(232, 185, 209);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-size: large;
+         }
+
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button{
+            width: 50px;
+        }
+
+        input {
+            margin-bottom: 1rem;
+        }
+
+        button {
+            background-color: #f8f8f8;
+        }
+
+        button:hover {
+            background-color: #e0e0e0;
+        }
+
+        button.operator {
+            background-color: #ff8c00;
+            color: #fff;
+        }
+
+        button.operator:hover {
+            background-color: #ff6b00;
+        }
+
+
+    </style>
+</head>
+
+<body class="dark:text-white light:text-black">
+
+    <!-- your app code goes here -->
+    <div>
+        <input type="number">
+        <br>
+        <button type="button"> AC </button>
+        <button type="button"> +/- </button>
+        <button type="button"> % </button>
+        <button type="button"> &#xF7; </button>
+        <br><br>
+        <button type="button"> 7 </button> <!-- div sym  &#xF7; -->
+        <button type="button"> 8 </button>
+        <button type="button"> 9 </button>
+        <button type="button"> x </button>
+        <br><br>
+        <button type="button"> 4 </button>
+        <button type="button"> 5 </button>
+        <button type="button"> 6 </button>
+        <button type="button"> - </button>
+        <br><br>
+        <button type="button"> 1 </button>
+        <button type="button"> 2 </button>
+        <button type="button"> 3 </button>
+        <button type="button"> + </button>
+        <br><br>
+        <button type="button" > 0 </button>
+        <button type="button"> . </button>
+        <button type="button" class="equals-btn"> = </button>
+    </div>
+    <!-- special scripts for integration in MTW gallery - must be placed at the bottom of the HTML after your code -->
+    <script>
+        // custom config for the MTW app 
+        const mtwAppConfig = {
+            border: true // app border in the MTW page                    
+        }
+
+        ///////////////////////////////////////////////////////
+        // implement this functions in order to use private API        
+        const sendPrivateApiRequest = async () => {
+            // your code here:
+            // sendRequestToParent({ cat: 'getAssets' })
+        }        
+
+        const acceptPrivateApiResponse = async (data) => {
+            // process received data here:
+            // console.log(data)
+        }
+
+        // use this in order to send on document load
+        document.addEventListener('DOMContentLoaded', () => {
+            // your code here:
+            //sendRequestToParent({ method: 'getAssets' })
+        })
+
+    </script>
+    <script src="https://morethanwallet.com/appstore/index.js"></script>
+</body>
+
+</html>
