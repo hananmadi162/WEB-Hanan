@@ -4,103 +4,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
     <title>Calculator_Lab1</title>
     <!--
         The tailwind CDN is designed for development purposes only, and is not the best choice for production.
         Read more here: https://tailwindcss.com/docs/installation 
     -->
     <!-- example for dark theme styling when using tailwind cdn -->
-    <style>
-        
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-        }
-
-        div {
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            background-color: rgb(232, 185, 209);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            font-size: large;
-         }
-
-        input, button {
-            padding: 10px;
-            font-size: 16px;
-            text-align: center;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button{
-            width: 50px;
-        }
-
-        input {
-            margin-bottom: 1rem;
-        }
-
-        button {
-            background-color: #f8f8f8;
-        }
-
-        button:hover {
-            background-color: #e0e0e0;
-        }
-
-        button.operator {
-            background-color: #ff8c00;
-            color: #fff;
-        }
-
-        button.operator:hover {
-            background-color: #ff6b00;
-        }
-
-
-    </style>
 </head>
 
 <body class="dark:text-white light:text-black">
 
     <!-- your app code goes here -->
     <div>
-        <input type="number">
+        <input type="text" name="display" id="display" disabled>
         <br>
-        <button type="button"> AC </button>
-        <button type="button"> +/- </button>
-        <button type="button"> % </button>
-        <button type="button"> &#xF7; </button>
+        <button type="button" onclick="notImplemented()">MC</button>
+        <button type="button" onclick="notImplemented()">MR</button>
+        <button type="button" onclick="notImplemented()">M+</button>
+        <button type="button" onclick="notImplemented()">M-</button>
+        <button type="button" onclick="notImplemented()">MS</button>
+        <button type="button" onclick="notImplemented()">M</button>
         <br><br>
-        <button type="button"> 7 </button> <!-- div sym  &#xF7; -->
-        <button type="button"> 8 </button>
-        <button type="button"> 9 </button>
-        <button type="button"> x </button>
+        <button type="button" onclick="notImplemented()">2<sup>nd</sup></button>
+        <button type="button" onclick="display.value +='&pi;'">&pi;</button>
+        <button type="button" onclick="display.value +='e'">e</button>
+        <button type="button" onclick="deleteAll()">AC</button>
+        <button type="button" onclick="deleteLastChar()">DE</button>
         <br><br>
-        <button type="button"> 4 </button>
-        <button type="button"> 5 </button>
-        <button type="button"> 6 </button>
-        <button type="button"> - </button>
+        <button type="button" onclick="display.value = Math.pow(parseFloat(display.value), 2)">x<sup>2</sup></button>
+        <button type="button" onclick="display.value += '1/Math.pow'">1/<sub>x</sub></button>
+        <button type="button" onclick="absFunc()">|x|</button>
+        <button type="button" onclick="notImplemented()">exp</button>
+        <button type="button" onclick="notImplemented()">mod</button>
         <br><br>
-        <button type="button"> 1 </button>
-        <button type="button"> 2 </button>
-        <button type="button"> 3 </button>
-        <button type="button"> + </button>
+        <button type="button" onclick="display.value += '&sup2;&radic;'">&sup2;&radic;x</button>
+        <button type="button" onclick="display.value += '('">&lpar;</button>
+        <button type="button" onclick="display.value += ')'">&rpar;</button>
+        <button type="button" onclick="factorial()">n!</button> 
+        <button type="button" onclick="display.value += '&#xF7;'"> &#xF7;</button>
         <br><br>
-        <button type="button" > 0 </button>
-        <button type="button"> . </button>
-        <button type="button" class="equals-btn"> = </button>
+        <button type="button" onclick="display.value += '^'">x<sup>y</sup></button>
+        <button type="button" onclick="display.value += '7'" > 7 </button>
+        <button type="button" onclick="display.value += '8'" > 8 </button>
+        <button type="button" onclick="display.value += '9'" > 9 </button>
+        <button type="button" onclick="display.value += '*'" > x </button>
+        <br><br>
+        <button type="button" onclick="tenToThePower()">10<sup>x</sup></button>
+        <button type="button" onclick="display.value += '4'" > 4 </button>
+        <button type="button" onclick="display.value += '5'" > 5 </button>
+        <button type="button" onclick="display.value += '6'" > 6 </button>
+        <button type="button" onclick="display.value += '-'" > - </button>
+        <br><br>
+        <button type="button" onclick="notImplemented()">log</button>
+        <button type="button" onclick="display.value += '1'" > 1 </button>
+        <button type="button" onclick="display.value += '2'" > 2 </button>
+        <button type="button" onclick="display.value += '3'" > 3 </button>
+        <button type="button" onclick="display.value += '+'" > + </button>
+        <br><br>
+        <button type="button" onclick="notImplemented()">ln</button>
+        <button type="button" onclick="changeSign()" > +/- </button>
+        <button type="button" onclick="display.value += '0'" > 0 </button>
+        <button type="button" onclick="display.value += '.'" > . </button>
+        <button type="button" onclick="evaluateExpression()" class="equals-btn">=</button>
     </div>
     <!-- special scripts for integration in MTW gallery - must be placed at the bottom of the HTML after your code -->
     <script>
